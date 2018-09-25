@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoQlue.Views.ClassListPage"
+             Title="Your classes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Name="Add"
+                     Clicked="AddButton_Clicked"
+                     x:Name="AddButton"/>
+        <ToolbarItem Text="Logoff"
+                     Name="Logoff"
+                     Clicked="Logoff_Clicked"
+                     Order="Secondary"
+                     x:Name="Logoff"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="Classes"
+                  RowHeight="80"
+                  ItemSelected="Classes_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"> 
+                            <Label Text="{Binding Name}" TextColor="Black" FontSize="Large"/>
+                            <Label Text="{Binding TeacherName}" TextColor="Gray" FontSize="Medium" Margin="5"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <!--<TextCell Text="{Binding Name}" Detail="{Binding TeacherName}" TextColor="Black" DetailColor="Gray" />-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

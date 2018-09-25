@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:NoQlue" 
+    x:Class="NoQlue.Views.AskQuestionPage"
+    Title="Submit Your Question">
+    <ContentPage.Content>
+        <StackLayout 
+                Margin="10">
+            <local:ExpandableEditor
+                    x:Name="txtMessage"/>
+            <Button 
+                    x:Name="SendQuestion"
+                    Clicked="OnSendQuestion_Clicked"
+                    Text="Ask the question"></Button>
+            <ListView x:Name="Questions"
+                      ItemSelected="Questions_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding TheQuestion}" TextColor="Black" FontSize="Medium" Margin="10"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
